@@ -1,0 +1,1 @@
+Install everything needed to run the pipeline from the alpha-diversities repo (github.com/MauroIb/alpha-diversities) — QIIME2, Deblur, phylogeny tools — without touching anything at the host system level.

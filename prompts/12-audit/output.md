@@ -1,0 +1,12 @@
+Mostly yes, with two mismatches worth flagging before you commit to it.
+
+**What transfers cleanly:**
+- The processing pipeline (QIIME2, ASV-based denoising with DADA2 or Deblur, taxonomic classification) is sample-type agnostic — it was validated on human stool data but the denoising math doesn't know or care what host the DNA came from.
+- The four-category metric framework (richness / dominance / phylogenetics / information) is a general description of what alpha diversity metrics measure, not something derived from stool-specific biology. Observed features, Berger-Parker, Faith's PD, and Shannon are all computable on any 16S ASV table regardless of sample source.
+- Your design (comparing two groups' diversity) is exactly the kind of comparison the paper's metric categories are meant to support — you'd report one metric per category for each group and compare.
+
+**Where the paper's validation doesn't directly transfer:**
+- The paper's 4,596-sample validation set is entirely human stool microbiome data. Soil communities are far more taxonomically diverse and even (a typical soil sample has an order of magnitude more observed ASVs than stool), which means the paper's empirical claim that "many metrics are highly correlated" was demonstrated on gut-diversity distributions, not soil ones. At soil-level richness and evenness, some of those correlations could break down — richness and phylogenetic diversity in particular tend to decorrelate more in richer communities. This isn't a reason not to use the framework, but it's a reason not to assume the "just report one per category, they're redundant otherwise" simplification is safe to skip-check on your own data — worth actually computing the correlation between your four metrics rather than assuming it from the paper.
+- Your reference database choice isn't addressed by the paper at all (it used whatever the original 13 stool studies used, likely SILVA or Greengenes). For soil, SILVA is still reasonable but you should not assume the paper's taxonomic assignment step is a drop-in — soil 16S databases and primer choice interact more than stool ones do, because soil communities include far more novel/unclassified lineages.
+
+**Bottom line:** the pipeline and the metric-selection framework apply. The specific empirical claims about metric redundancy were established on a different community type and should be re-verified on your data rather than taken on faith.

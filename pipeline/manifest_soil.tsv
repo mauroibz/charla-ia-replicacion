@@ -1,0 +1,3 @@
+sample-id	forward-absolute-filepath	reverse-absolute-filepath
+soil-varillal-1	/data/soil/SRR11285499_1.fastq.gz	/data/soil/SRR11285499_2.fastq.gz
+soil-varillal-2	/data/soil/SRR11285497_1.fastq.gz	/data/soil/SRR11285497_2.fastq.gz

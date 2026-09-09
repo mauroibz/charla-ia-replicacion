@@ -1,0 +1,1 @@
+I ran the validated pipeline on 2 new soil samples (not part of the original paper's dataset) and got almost no merged reads — the feature table is essentially empty. Input read counts look normal (44,901 and 50,141 pairs). Help me interpret what's going wrong before I conclude anything about soil diversity from this.

@@ -1,0 +1,6 @@
+sample-id,reads-raw,unique-reads-derep,reads-derep,unique-reads-deblur,reads-deblur,unique-reads-hit-artifact,reads-hit-artifact,unique-reads-chimeric,reads-chimeric,unique-reads-hit-reference,reads-hit-reference,unique-reads-missed-reference,reads-missed-reference
+sample-109,1867,116,1383,101,1289,0,0,2,4,64,1180,0,0
+sample-176,2567,169,1906,138,1756,0,0,12,15,69,1548,0,0
+sample-25,1527,103,1219,77,1115,0,0,3,5,49,1049,0,0
+sample-4,2123,112,1644,68,1514,0,0,0,0,37,1423,0,0
+sample-96,2303,128,1796,90,1629,0,0,4,6,52,1507,0,0

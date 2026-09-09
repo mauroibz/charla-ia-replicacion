@@ -1,0 +1,6 @@
+work*/
+raw_full/
+*.qza
+*.qzv
+.venv/
+__pycache__/
