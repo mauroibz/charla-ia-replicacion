@@ -119,7 +119,7 @@ servía: no que se vea prolija, sino que alguien que no estuvo ahí pueda usarla
 |---|---|
 | `prompts/` | El prompt y la salida de cada paso, uno por carpeta, en orden. |
 | `pipeline/` | Los scripts que corrieron de verdad, uno por hipótesis, más los manifiestos. |
-| `results/` | Tablas publicado-contra-reproducido de las cuatro corridas. |
+| `results/` | Tablas publicado-contra-reproducido de las cuatro corridas, la tabla de features reproducida de las 308 muestras, y los vectores de alpha-diversidad del suelo con su metadata. |
 | `figures/` | Figuras generadas desde los datos de las corridas. |
 | `notes/` | Notas de trabajo, incluidas las conclusiones que después se refutaron. |
 
@@ -140,7 +140,9 @@ docker run --rm -v "$PWD/pipeline:/data" -w /data \
 - `run_atacama.sh` — el dataset de suelo del desierto de Atacama.
 
 Los reads crudos no están versionados acá: se bajan de ENA con los manifiestos
-de `pipeline/`. Los directorios de trabajo tampoco (son del orden del GB).
+de `pipeline/`. Los directorios de trabajo tampoco (son del orden del GB). Sí
+están las salidas que sostienen cada figura y cada número del deck, en
+`results/`, así que las figuras se regeneran sin volver a correr el pipeline.
 
 ## Nota sobre las notas
 
