@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="logo.png" alt="" width="180">
+</p>
+
 # Replicar un paper de punta a punta con un agente
 
 Artefactos completos de una charla sobre uso de IA en tareas complejas (UNR).
@@ -54,6 +58,53 @@ esas features viven justo en el umbral (mediana de 12 reads globales, 88% por
 debajo de 20). La explicación candidata es que bajamos de los mirrors
 `fastq.gz` de ENA y el paper usó `sra-tools`, que pueden diferir por unos pocos
 reads. **Está sin probar** y así figura.
+
+## De los artifacts a la charla
+
+El agente no produjo slides. Produjo *artifacts*: para cada paso, el prompt que
+recibió, la salida que devolvió, y los archivos que generó al correr. Esa
+carpeta es lo que hay en `prompts/`, `results/` y `figures/`.
+
+Recién después esos artifacts se ingestaron en [open-slide](https://github.com/anthropics/open-slide),
+que es donde se escribió el deck. Cada página del deck es código React que cita
+un artifact concreto: la tabla de validación es el CSV de `results/`, el
+diagrama del pipeline es el PNG de `figures/`, los prompts que aparecen en
+pantalla son los `prompt.md` de `prompts/`. Nada se reescribió a mano para que
+quedara mejor en una slide.
+
+```mermaid
+flowchart TD
+    P["Un prompt inicial<br/><i>«replicá este paper y capturá<br/>todos los artifacts del recorrido»</i>"]
+
+    subgraph AG ["El agente corre el proceso"]
+        direction LR
+        A["Investigar<br/>y comparar"] --> B["Auditar<br/>aplicabilidad"] --> C["Instalar<br/>y validar"] --> D["Muestras<br/>nuevas"] --> E["Reportar"]
+    end
+
+    P --> AG
+
+    AG --> AR["<b>Artifacts</b><br/>prompt.md · output.md<br/>tablas · figuras · scripts · notas"]
+
+    AR --> OS["<b>open-slide</b><br/>cada página es código React<br/>que cita un artifact"]
+    OS --> DK["El deck"]
+
+    AR --> RP["<b>Este repo</b><br/>«registrá todo lo que hiciste»"]
+
+    V["Agente nuevo, sin contexto:<br/>«reproducí esto con el repo solo»"]
+    RP --> V
+    V -.->|"encontró la causa que<br/>la sesión original dio por resuelta"| AG
+
+    classDef good fill:#e6f0ec,stroke:#1f6f5c,stroke-width:2px,color:#1c1a15
+    classDef plain fill:#f6f3ea,stroke:#8a8474,color:#1c1a15
+    class P,AR,OS,DK,RP plain
+    class V good
+```
+
+El ciclo de vuelta no es adorno. El repo se armó pidiendo «registrá todo lo que
+hiciste», y después un agente nuevo, sin nada del contexto de la sesión
+original, lo usó para intentar reproducir el resultado. Encontró la causa que la
+primera sesión había dado por resuelta. Esa es la prueba de que la documentación
+servía: no que se vea prolija, sino que alguien que no estuvo ahí pueda usarla.
 
 ## Qué hay en cada carpeta
 
