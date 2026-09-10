@@ -94,10 +94,17 @@ flowchart TD
     RP --> V
     V -.->|"encontró la causa que<br/>la sesión original dio por resuelta"| AG
 
+    classDef plain fill:#f6f3ea,stroke:#8a8474,stroke-width:1.5px,color:#1c1a15
+    classDef step fill:#ffffff,stroke:#8a8474,stroke-width:1.5px,color:#1c1a15
     classDef good fill:#e6f0ec,stroke:#1f6f5c,stroke-width:2px,color:#1c1a15
-    classDef plain fill:#f6f3ea,stroke:#8a8474,color:#1c1a15
-    class P,AR,OS,DK,RP plain
+    classDef deck fill:#211f19,stroke:#211f19,stroke-width:2px,color:#efece0
+
+    class P,AR plain
+    class A,B,C,D,E step
+    class OS,RP good
     class V good
+    class DK deck
+    style AG fill:#f0ece0,stroke:#8a8474,stroke-width:1.5px,color:#6b6558
 ```
 
 El ciclo de vuelta no es adorno. El repo se armó pidiendo «registrá todo lo que
