@@ -1,0 +1,51 @@
+Tengo que dar una charla sobre el uso de IA en tareas complejas, y quiero que el caso central sea replicar un paper científico de punta a punta. Todo lo que produzcas en el camino, el prompt de cada paso, tu respuesta y los archivos que generes al correr cosas de verdad, va a ser el input para los slides de la charla. El objetivo no es solo llegar a un resultado: es capturar el recorrido completo, incluidas las partes que fallen.
+
+EL PAPER
+https://www.nature.com/articles/s41598-024-77864-y
+
+OBJETIVO GENERAL
+Partir de ese paper como único punto de partida y terminar con:
+1. El método del paper comprendido y comparado contra otras fuentes.
+2. Una decisión fundamentada sobre si aplica a muestras de suelo.
+3. El pipeline del repo instalado y validado por reproducción.
+4. Muestras nuevas de suelo corriendo por ese pipeline validado.
+5. Todo el recorrido registrado como artifacts, listo para volverse slides.
+
+Antes de tocar un solo comando, escribí para cada paso su entregable y su criterio de validación. Un paso sin criterio de aceptación es un paso del que no vas a saber si salió bien. Si un resultado no cumple el criterio, queda como hallazgo a investigar.
+
+PRÁCTICAS PARA TODO EL RECORRIDO
+- El criterio de cada paso se escribe antes de ejecutarlo, no después de ver los números.
+- Toda afirmación tiene que ser verificable o estar marcada como supuesto.
+- Si investigás una discrepancia, probá las hipótesis de a una y documentá el veredicto de cada una: confirmada, descartada, o quedó sin probar.
+- Registrá también lo que falle: una corrida que dio mal y quedó documentada vale más que una que "dio bien" y nadie puede repetir.
+- Por paso, dejá el prompt, tu salida y los archivos que generaste.
+
+PASO 1 — INVESTIGAR EL TERRENO
+Arrancá abierto: ¿cómo se analiza una muestra de microbiota con datos de 16S rRNA? Quiero el mapa de decisiones con las alternativas reales de cada decisión.
+
+PASO 2 — BUSCAR Y COMPARAR PAPERS
+Buscá al menos dos papers más que ataquen la misma pregunta que el paper base (qué métricas de alpha diversidad usar y cómo reportarlas). Comparálos contra el paper base: ¿en qué se contradicen?
+
+PASO 3 — AUDITAR APLICABILIDAD
+El experimento: Describi las muestras de suelo y validalo contra el proyecto. ¿El pipeline y las guías del paper base aplican a este experimento?
+
+PASO 4 — AUTOCRÍTICA DE LA AUDITORÍA
+Critica tu propia respuesta anterior: ¿en qué fuiste indulgente? ¿Qué modo de falla no se te ocurrió nombrar?
+
+PASO 5 — PLAN DE ADAPTACIÓN
+Dado todo lo anterior, escribí un plan de trabajo concreto para aplicar este sistema de análisis a una muestra de suelo, de punta a punta.
+
+PASO 6 — INSTALAR EL PIPELINE
+Instalá todo lo necesario para correr el pipeline del repo del paper (QIIME2, Deblur, herramientas de filogenia) sin tocar nada a nivel del sistema host.
+
+PASO 7 — VALIDAR REPRODUCIENDO EL PAPER
+Corré cinco muestras del dataset original del propio paper por el pipeline que acabás de instalar y comparalas contra la tabla publicada.
+
+PASO 8 — MUESTRAS NUEVAS DE SUELO
+Buscá muestras nuevas de suelo, no incluidas en el dataset del paper, que requieran adaptar el pipeline, el objetivo es probar generalización a datos no vistos. Corrélas por el pipeline ya validado.
+
+PASO 9 — ANÁLISIS E INTERPRETACIÓN
+Calculá las métricas sobre las muestras nuevas, generá las figuras desde los datos reales de la corrida y proponé una hipótesis a validar.
+
+PASO 10 — REGISTRAR, PUBLICAR Y CERRAR EL CICLO
+Documenta todo. Tanto este proceso como la redaccion de los slides, y valida que reproduzca todo con un agente nuevo.
