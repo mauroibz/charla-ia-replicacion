@@ -145,15 +145,8 @@ debajo de 20). La explicación candidata es que bajamos de los mirrors
 `fastq.gz` de ENA y el paper usó `sra-tools`, que pueden diferir por unos pocos
 reads. **Está sin probar** y así figura.
 
-## Nota sobre las notas
-
-`notes/validacion-NOTES.md` contiene dos conclusiones que resultaron falsas, y
-se conserva sin editar. `notes/SUBAGENT-FINDINGS.md` las refuta y documenta la
-causa real. Ese contraste es deliberado: la diferencia entre una hipótesis que
-se probó y una que se dio por buena leyendo una columna de stats es el tema de
-la charla.
-
 ## Créditos
 
 El paper y el repo original son de sus autores; acá solo se los reproduce.
 El dataset de suelo es el tutorial oficial de Atacama del proyecto QIIME2.
+La charla fue creada y dada por mi :)
